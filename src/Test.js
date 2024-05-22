@@ -1,23 +1,30 @@
 import React from "react";
 
-export default function Test({ numbers, arrayOfObject }) {
-  const [numbersState, setNumbersState] = React.useState(numbers);
-  const [arrayState, setArrayState] = React.useState(arrayOfObject);
+let renderCount = 0;
+
+export function Test({ number, arrayOfStrings }) {
+  const [numberState, setNumberState] = React.useState(number);
+  const [arrayState, setArrayState] = React.useState(arrayOfStrings);
 
   React.useEffect(() => {
-    setNumbersState([...numbers, 6, 7, 8]);
-  }, [numbers]);
+    setNumberState(number + 2);
+  }, [number]);
 
   React.useEffect(() => {
-    setArrayState([...arrayOfObject, "e", "d", "f"]);
-  }, [arrayOfObject]);
+    setArrayState([...arrayOfStrings, "e", "d", "f"]);
+  }, [arrayOfStrings]);
+
+  renderCount++;
 
   return (
     <div className="App">
-      {numbersState}{" "}
+      {numberState}{" "}
       {arrayState.map((item) => (
-        <div>{item}</div>
+        <div key={item}>{item}</div>
       ))}
+      rendered {renderCount} times
     </div>
   );
 }
+
+export default Test;
