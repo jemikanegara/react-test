@@ -1,20 +1,25 @@
 import React from 'react';
-import Test from './Test.js';
+import TestArray from './TestArray.js';
+import TestNumber from './TestNumber.js';
 
+// dont change this component
 export default function App() {
   const [number, setNumber] = React.useState(2);
   const [arrayOfStrings, setArrayOfStrings] = React.useState([]);
 
   React.useEffect(() => {
     setInterval(() => {
-      setNumber(2);
-      setArrayOfStrings([])
+      fetch('/data.json').then(res => res.json()).then(data => {
+        setNumber(data.number);
+        setArrayOfStrings(data.arrayOfStrings);
+      })
     }, 1000);
   }, [])
 
   return (
     <div className="App">
-      <Test number={number} arrayOfStrings={arrayOfStrings} />
+      <TestNumber number={number} />
+      <TestArray arrayOfStrings={arrayOfStrings} />
     </div>
   );
 }
