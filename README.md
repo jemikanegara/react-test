@@ -19,4 +19,6 @@ App.js contains two components, TestNumber and TestArray. TestNumber is a simple
 - stop infinite rerender on TestArray component
 
 ## Rules
+- You are not allowed to use AI to solve the problem
+- You are allowed to use google to find the solution
 - check the comment in TestNumber.js and TestArray.js
