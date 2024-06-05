@@ -8,7 +8,7 @@ let renderCount = 0;
 // so the rendered array will be: ["first, ", "second, ", "third, ", "additional 1, ", "additional 2, ", "additional 3"]
 
 // GOAL:
-// - stop the infinite rerender bug (2 is the expected number of rerenders if you run this in development mode)
+// - stop the infinite rerender bug
 
 // DONT:
 // - change the renderCount variable
